@@ -33,7 +33,7 @@ var createMatrix = function (N) {
 
 var longestPalindrome = function(s) {
   var max =1;
-  var begins =0;
+  var begins =0; // to keep the track of begin index of longest palindrome substring
   var temp = createMatrix(s.length);
   
   // single letter palindromes
@@ -55,7 +55,7 @@ var longestPalindrome = function(s) {
    for(var lencounter =3; lencounter <=s.length; lencounter++) {
      for(var k =0; k< s.length; k++) {
        var endlen = k+lencounter-1;
-       if(s[k] === s[endlen] && temp[k+1][endlen-1]) {
+       if(s[k] === s[endlen] && temp[k+1][endlen-1]) {   // checks if the first and last chracter matches
          temp[k][endlen] = true;
          begins =k
          max= lencounter;

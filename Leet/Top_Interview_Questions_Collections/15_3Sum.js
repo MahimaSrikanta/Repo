@@ -14,6 +14,7 @@ A solution set is:
 //accepted , but time limit exceeded for last test
 
 //time = O(n^2)
+/***************Not Revised *******************
 var threeSum = function(nums) {
   nums.sort(function(a,b) {
     return a-b;

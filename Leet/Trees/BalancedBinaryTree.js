@@ -10,32 +10,33 @@
  * @return {boolean}
  */
 
+//accepted
 
 //https://www.youtube.com/watch?v=TWDigbwxuB4
-var helper = function(root) {
-  if(root === null) {
-  	return 0;
-  }
-  var left= isBalanced(root.left);
-  var right= isBalanced(root.right);
-
-  if(left === -1 || right === -1) {
-  	return -1;
-  }
-  if(Math.abs(left-right) > 1) {
-    return -1;
-  } 
-  	return Math.max(left, right) +1
-  
-
-}
-
 var isBalanced = function(root) {
-  if(root === null) {
-	return true;
+  if(root === null || root === []) {
+    return true;
   }
-  if(helper(root) === -1) {
-  	return false;
+  var helper = function (node) {
+    if(node === null) {   // bottom-up approach
+      return 0;
+    }
+    var left = helper(node.left);
+    var right = helper(node.right); // remember to declare these variables as var
+    
+    if(left === -1 || right === -1 ) {
+      return -1;
+    }
+    if(Math.abs(left - right) > 1) {
+      
+      return -1;
+    } else {
+    
+     return 1+ Math.max(left,right);
+    }
+    
   }
-  return true;
-}
+  
+  return helper(root) === -1 ? false : true;
+  
+};

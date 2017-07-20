@@ -19,7 +19,7 @@ var trap = function(height) {
   
   //create left Array
   for(var i =0; i< height.length; i++) {
-    leftArr[i] = Math.max(leftMax, height[i]);
+    leftArr[i] = Math.max(leftMax, height[i]); // Note its Max of the leftmax and the number itself.
     leftMax = leftArr[i]
   }
   

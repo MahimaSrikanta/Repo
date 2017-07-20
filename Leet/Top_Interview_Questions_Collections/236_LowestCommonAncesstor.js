@@ -16,40 +16,34 @@ For example, the lowest common ancestor (LCA) of nodes 5 and 1 is 3. Another exa
 
 //Not accepted
 
-var lowestCommonAncestor = function(root, p, q) {
-     if(root === null || root === p || root === q) return root;
-  
-  left = lowestCommonAncestor(root.left, p, q);
-  right =lowestCommonAncestor(root.right, p, q);
-  return left === null ? right : right === null ? left : root
-};
+//helper function 
+// checks if the node.valeuals to the given value if yes, then returns the value
+// checks if the node is null , if yes , then return null
+// left vairable = helper(left node);
+// right variable = helper(right node);
+// if the left val != null && right val !== null , then return the root;
 
-//using stacks
 
-var lowestCommonAncestor = function(root, p, q) {
-  var stack =[root];
-  var hash={};
-  hash[root.val]=null;
-  while(! hash[p] || ! hash[q]) {
-    var node = stack.pop();
-    if(node.left !== undefined) {
-      stack.push(node.left);
-      hash[node.left.val] = node.val;
-    }
-    if(node.right !==undefined) {
-      stack.push(node.right);
-      hash[node.right.val] = node.val;
-    }
+var helper = function (node, p, q) {
+  if(node === null) {      // important to place this if condition above 
+    return null;
   }
+  if(node.val === p || node.val === q) {
+    return node;
+  }
+
   
-  var temp =[];
-  while(p !== null) {
-    p = hash[p];
-    temp.push(p);
-  }  
-  while(! temp.includes(q)) {
-    q= hash[q];
-    
+  var left = helper(node.left, p, q);
+  var right = helper(node.right, p,q);
+  if(left !== null && right !==null) {
+    return node.val;
   }
-  return q
-};
+  return left !== null ? left : right;
+}
+var lowestCommonAncestor = function(root, p, q) {
+  if(root === null || root === p || root  === q) {
+    return root;
+  }
+  //helper fuunction root.left
+ return  helper(root, p,q);
+}

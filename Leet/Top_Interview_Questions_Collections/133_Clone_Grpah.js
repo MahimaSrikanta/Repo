@@ -26,6 +26,17 @@ Visually, the graph looks like the following:
 
 //Not accepted
 
+
+/*
+How to keep track of the visited/cloned nodes?
+A HashMap/Map is required in order to maintain all the nodes which have already been created.
+Key stores: Reference/Address of original Node
+Value stores: Reference/Address of cloned Node
+
+A copy of all the graph nodes has been made, how to connect clone nodes?
+While visiting the neighboring vertices of a node u get the corresponding cloned node for u , let’s call that cloneNodeU , now visit all the neighboring nodes for u and for each neighbor find the corresponding clone node(if not found create one) and then push into the neighboring vector of cloneNodeU node
+*/
+
 function UndirectedGraphNode(label) {
   this.label = label;
   this.neighbors = [];   // Array of UndirectedGraphNode
@@ -77,3 +88,44 @@ b.neighbors.push(c);
 c.neighbors.push(c);
 
 cloneGraph(a)
+
+
+// solution from a website 
+
+//complexity is O(V + E)
+
+function UndirectedGraphNode(label) {
+     this.label = label;
+     this.neighbors = [];   // Array of UndirectedGraphNode
+}
+
+var cloneGraph = function(graph) {
+  var visited = {};
+ if(graph === null){
+     return null;
+   }else{
+         return dfs(graph);
+     }
+ 
+    function dfs(node){
+         var newNode = null;
+         if(visited[node.label]){  // maps the original node.label with the newly created graph node
+             newNode = visited[node.label];
+         }else{
+             newNode = new UndirectedGraphNode(node.label);
+             visited[node.label] = newNode;
+         }
+         for(var i = 0; i < node.neighbors.length; i++){
+            if(node.neighbors[i].label !== node.label){  
+                 if(!visited[node.neighbors[i].label]){  // if the node is not visited then call DFS on that node
+                     newNode.neighbors.push(dfs(node.neighbors[i]));
+                 }else{   // else simply create the adjancy and do not call DFS on it
+                     newNode.neighbors.push(visited[node.neighbors[i].label]);
+                 }
+             }else{
+                 newNode.neighbors.push(visited[node.label]);
+             }
+         }
+         return newNode; 
+     }   
+ };
