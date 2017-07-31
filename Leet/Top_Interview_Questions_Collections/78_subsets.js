@@ -24,25 +24,24 @@ If nums = [1,2,3], a solution is:
 
 
 
-
 var backtrackHelper = function (nums, temp, finalResult, start) {
   
   finalResult.push(temp.slice(0));
+ // console.log(finalResult);
   for(var i =start; i< nums.length; i++) {
-      // if(temp.includes(nums[i]))  continue;
+      //if(temp.includes(nums[i]))  continue;
       temp.push(nums[i]);
-      backtrackHelper(nums, temp, finalResult, start+1);
+      backtrackHelper(nums, temp, finalResult, start= start+1);
       temp.pop();
   
   }
-
+ return finalResult;
 }
 
 var subsets = function(nums) {
   var temp = [];
   var finalResult = [];
-  backtrackHelper(nums, temp, finalResult, 0)  
-  return finalResult
+  return backtrackHelper(nums, temp, finalResult, 0)  
 };
 
 subsets([1,2,3])
