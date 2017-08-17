@@ -9,7 +9,7 @@ You may assume no duplicate exists in the array.
 */
 
 //Accepted
-//Time O(n), Space:O(1)
+//Time O(log n), Space:O(1)
 
 var search = function(nums, target) {
   var l=0 
