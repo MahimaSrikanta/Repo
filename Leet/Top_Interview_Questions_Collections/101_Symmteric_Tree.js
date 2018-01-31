@@ -59,13 +59,7 @@ var isSymmetric = function(root) {
     if(right.val !== left.val ) {
       return false;
     }
-    if(!helper(left.right, right.left)){
-      return false;
-    }
-    if(!helper (left.left, right.right)) {
-      return false
-    }
-    return true;
+    return (helper(left.right, right.left) && helper(left.left, right.right));
   }
   return helper (root.left, root.right);
 };
