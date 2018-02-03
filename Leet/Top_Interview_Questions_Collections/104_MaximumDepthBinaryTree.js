@@ -31,20 +31,10 @@ function TreeNode(val) {
 
 var maxDepth = function(root) {
   var max =0;
-  var count =0;
-  var recursion = function (r, count) {
-    if(r=== null) {
-      return;
-    }
-    recursion(r.left,++count);
-    max = Math.max(max, count);
-    //console.log(r)
-    recursion(r.right,count++);
-    
-   
+  if(root === null) {
+    return 0;
   }
-  recursion(root, 0);
-  return max;
+  return Math.max(maxDepth(root.left)+1, maxDepth(root.right)+1)
 };
 
 var binaryTree = new TreeNode(10);

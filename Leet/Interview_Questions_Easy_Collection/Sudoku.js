@@ -12,12 +12,12 @@ var isValidSudoku = function(board) {
     var rows = {};
     var cols ={};
     for(var j=0; j<9; j++) {
-      if(board[i][j] !== "." && rows[board[i][j]]) {
+      if(board[i][j] !== "." && rows[i][j]) {
         return false;
       } else {
         rows[board [i][j]] =1;
       }
-      if(board[j][i] !== "." && cols[board[j][i]]) {
+      if(board[j][i] !== "." && cols[j][i]) {
         return false;
       } else {
         cols[board[j][i]]=1;
@@ -28,3 +28,6 @@ var isValidSudoku = function(board) {
   
   return true
 };
+
+
+isValidSudoku([[5,3,7]])
