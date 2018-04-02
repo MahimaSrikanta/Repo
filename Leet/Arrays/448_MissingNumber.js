@@ -33,3 +33,13 @@ var findDisappearedNumbers = function(nums) {
   }
   return result;
 }
+
+//constant space
+
+var missingNumber = function(nums) {
+  var result = 0;
+  for(var i =0; i< nums.length; i++) {
+    result = result ^ (i+1) ^ nums[i];
+  }
+  return result
+};
