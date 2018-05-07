@@ -250,3 +250,39 @@ var left2 = left1.addLeft(4);
 right1.addLeft(6);
 right1.addRight(7);
 vertical(binaryTree)
+
+
+
+
+/* {a: 1, b: 2, c: {c1, {c11: 6 c12: 2}, c2: 4}
+print
+‘A,1’
+B,2
+C,C1,C11,6
+C,c1,c12,2
+C,c2,4*/
+
+
+function print (obj){
+  var result ="";
+  
+  var helper = function (obj, temp){
+    if(Object.keys(obj).length ===0){
+      return result;
+    }
+    
+    for(let keys in obj){
+      if(typeof(obj[keys]) === 'object'){
+       helper(obj[keys], temp+keys)
+      }else {
+       
+        result+=temp + "," + keys +"," +obj[keys]+ ",";
+      }
+    }
+  }
+  
+  helper(obj, "");
+  return result
+}
+let a = {a: 1, b: 2, c: {c1:{c11: 6, c12: 2}, c2: 4}}
+print (a)
