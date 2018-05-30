@@ -29,6 +29,9 @@ function kthToLast(head, k) {
   return (curr)
  }
  
+
+ 
+ 
  var list = new ListNode(1);
 var list1 = new ListNode(2);
 var list3 = new ListNode(1);
@@ -39,5 +42,3 @@ list1.next = list3;
 list3.next = list4;
 list4.next = list5;
 kthToLast(list, 7)
- 
- 
