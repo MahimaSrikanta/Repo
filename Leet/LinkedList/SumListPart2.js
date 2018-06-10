@@ -26,11 +26,6 @@ var addTwoNumbers = function(l1, l2) {
   var result = new ListNode(0);
   var h1 = result;
   var recursion = function (link1, link2, result) {
-    //console.log(link1)
-    // if(link1.next === null) {
-    //   return (link1.val + link2.val);
-    // }
-    // return  recursion(link1.next , link2.next )
   if(link1.next !== null && link2.next !== null) {
       result.next = new ListNode(0);
       recursion(link1.next, link2.next, result.next );
