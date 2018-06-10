@@ -49,5 +49,5 @@ var list1 = new ListNode(1);
 // list4.next = list5;
 // list5.next = list3;
 
-//assert( hasCycle(list), true);
+
 mergeTwoLists(list, list1)

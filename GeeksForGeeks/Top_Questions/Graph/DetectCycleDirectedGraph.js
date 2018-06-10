@@ -1,3 +1,6 @@
+
+
+
 class Graph {
   constructor(vertex) {
     this.numberVertex = vertex;

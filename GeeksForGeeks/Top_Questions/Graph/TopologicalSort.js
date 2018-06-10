@@ -29,10 +29,8 @@ class Graph {
       if(visited[keys]){
         continue;
       }
-        this.topSort(keys, visited, stack)
-      
+      this.topSort(keys, visited, stack)
     }
-  
     console.log(stack)
   }
   

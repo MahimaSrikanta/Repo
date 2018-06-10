@@ -25,24 +25,20 @@ class Graph {
   bfs(start) {
     var visited ={};
     for(var key of this.adjList.keys()) {
-      visited[key] = false;
-         
+      visited[key] = false;  
     }
     
     var queue = [start];
     visited[start] = true;
     while(queue.length !==0) {
       var node = queue.shift();
-      console.log(node);
-
-      
+      console.log(node);      
       for(var k of this.adjList.get(node)) {
         if(!visited[k]) {
           queue.push(k);
           visited[k] = true  // Important to be here
         }
       }
-
     }
   }
   
