@@ -69,3 +69,22 @@ var getIntersectionNode = function(headA, headB) {
   }
   return A
 };
+
+
+//
+function getIntersectionNode (listA, listB){
+  let A = listA;
+  let B = listB;
+  
+  while(A !== null || B!== null){
+    if(A!==null && B!==null){
+      if(A.val === B.val){
+        return true;
+      }
+    }
+    
+    A= A=== null ? listB : A.next;
+    B= B=== null ? listA : B.next
+  }
+  return false;
+}

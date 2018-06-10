@@ -37,3 +37,17 @@ var recursion = function (arr) {
    return arr;
    
 }
+
+//easy apporach
+//Reverse array Recursion
+
+function reverse(arr){
+  if (arr.length === 0){
+    return [];
+  }  
+  let last = arr[0];
+  return reverse(arr.slice(1)).concat(last)
+  
+}
+
+reverse([1,2,3, 5])
