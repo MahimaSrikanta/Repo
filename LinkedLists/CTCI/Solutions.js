@@ -37,7 +37,8 @@ let RemoveDups = function(head){
 
 //2.2 Find the kth to last element 
 /*
- Logic: Take two pointers, move the first ptr till k times starting from the list .Then move both pointers till the first ptr reaches the null. The result will be pointed by second ptr
+ Logic: Take two pointers, move the first ptr till k times starting from the list .
+ Then move both pointers till the first ptr reaches the null. The result will be pointed by second ptr
  TimeComplexity: O(n)
 */ 
 
@@ -105,8 +106,10 @@ Output: 7 -> 0 -> 8
 */
 
 /*
-  Logic: loop while both the lists are not null  and go on adding the values of node. val/10 gives carry and val%10 gives sum. create ans list with sum and carry to next summation.
-  If two linked list are of unequal size. Then loop through the left out longest linked list and add the results to ans list.
+  Logic: loop while both the lists are not null  and go on adding the values of node. 
+  val/10 gives carry and val%10 gives sum. create ans list with sum and carry to next summation.
+  If two linked list are of unequal size. Then loop through the left out longest linked list 
+  and add the results to ans list.
 
   Time Complexity : O(n) 
 */
