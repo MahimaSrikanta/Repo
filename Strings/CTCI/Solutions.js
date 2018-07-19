@@ -47,7 +47,8 @@ let IsUnique = function(str) {
   
   //1.4 Permuation of a Palindrome
   /*
-   Logic: Have a hash table  with keys as ther letter of the string and the frequency as its value. all the keys should have even number of occurance , except one in case of odd length word
+   Logic: Have a hash table  with keys as ther letter of the string and the frequency as its value.
+    all the keys should have even number of occurance , except one in case of odd length word
   
    Time complexity: O(n)
   */
@@ -78,7 +79,9 @@ let IsUnique = function(str) {
 //1.5 One Away
 /*
   Logic: Check if the two strings are of same length or diff is 1.
-  Get the biggest string and run the loop with it. have a counter value to cound the edits. go on comparing letter by letter between two string if the do not match then increase the edits. if edits are greater than 1 then return false
+  Get the biggest string and run the loop with it. have a counter value to cound the edits.
+  go on comparing letter by letter between two string if they do not match then increase the edits. 
+  if edits are greater than 1 then return false
 
   comsplexity : O(n)
 */
@@ -105,7 +108,8 @@ let oneEditAway = function(str1, str2){
 
   //1.6 String Compression
 /*
-  Logic: Have counter, which counts the number of similar consequtive letters, when unequality is found append the count with letter to result string 
+  Logic: Have counter, which counts the number of similar consequtive letters, 
+  when unequality is found append the count with letter to result string 
 
   Time complexity: O(n)
 */
@@ -130,5 +134,5 @@ let StringCompression = function(str) {
   
   //1.9 String rotation
   /*
-    Logic: append the str at the end of itself and call the isSubstring function to check if the given str is rotation of original string
+    Logic: append the str at the end to itself and call the isSubstring function to check if the given str is rotation of original string
   */

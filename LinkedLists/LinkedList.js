@@ -15,15 +15,15 @@ const Linkedlist = function(){
   Linkedlist.prototype.addToTail = function (val) {
     let newNode = new Node(val);
     if(this.tail) this.tail.next = newNode;
-    else this.head = newNode;
+    else this.head = newNode; // if this is the first node added
     this.tail= newNode;
   }
   
   Linkedlist.prototype.removeFromHead = function () {
-    if(!this.head) return null;
+    if(!this.head) return null;// if list list is already empty return null
     let result = this.head.val;
     this.head= this.head.next;
-    if(!this.head) this.tail = null;
+    if(!this.head) this.tail = null; // if list become empty after removal, set head and tail to null
   }
   
   let List = new Linkedlist();
